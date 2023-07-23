@@ -3,25 +3,34 @@
     display: flex;
     flex-direction: column;
     padding: 10px 5px;
-    flex-basis: 20%;
-    margin: 7px;
+    flex-basis: calc(32% - 20px);
+    margin: 10px;
+    background-color: white;
+    border: rgb(240, 234, 234) solid 1px;
 }
 .Img{
     width: 100%;
-    height: 300px;
+    object-fit: cover;
+    
 }
 .Cost
 {
     color: green;
     font-size: large;
+    margin-top:5px;
 }
 span .readmore
 {
     color: rgb(30, 139, 183);
 }
 .btn
-{
-    background: rgb(217, 155, 155);
+{ display: block;
+    margin: auto;
+     width:250px;
+    padding: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    background: rgb(228, 207, 207);
     color: black;
     border: 1px solid rgb(174, 81, 81);
 
@@ -30,4 +39,14 @@ span .readmore
 {
 cursor: pointer;
 background: rgb(145, 78, 78);
+}
+.readmore
+{
+color: rgb(10, 142, 194);
+display: inline;
+cursor: pointer;
+}
+.place
+{
+    margin-top: 0px;
 }

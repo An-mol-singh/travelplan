@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background: whitesmoke;
 }
 .Heading {
   color: black;
@@ -18,4 +19,10 @@
   margin-top: 20vh;
   padding: 5px;
 
+}
+.Container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75vw;
+  justify-content: center; 
 }

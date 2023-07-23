@@ -1,21 +1,33 @@
 import './Card.css';
+import React, { useState } from 'react';
 
+function Cards(props) {
+  const [readmore, setinfo] = useState(false);
+  const description = readmore ? props.description : `${props.description.substring(0, 200)}...`;
 
+  function setread() {
+    setinfo(!readmore);
+  }
 
-function Cards(props)
-{
-   <div className='Card'>
-    <img src={props.Url} alt='photos' className='Img' />
-    <p className='Cost'>&#x20B9;{props.cost}</p>
-    <h1>{props.place}</h1>
-    <p>{props.description}....<span className="readmore">read more</span> </p>
-    <button className='bnt'>
-            Not Interested
-        </button>
-     <button className='bnt'>
-               Interested
-     </button>
-    </div> 
+  return (
+    <div className='Card'>
+      <img src={props.Url} alt='photos' className='Img' />
+      <span className='Cost'>&#x20B9;{props.cost}</span>
+      <h1 className='place'>{props.place}</h1>
+      <p className='desc'>
+        {description}
+        <span className="readmore" onClick={setread}>
+          {readmore ? `show less` : `read more`}
+        </span>
+      </p>
+      <button className='btn' onClick={() => props.removecard(props.Id)}>
+        Not Interested
+      </button>
+      <button className='btn' onClick={() => props.selectcard(props.Id)}>
+         Interested
+      </button>
+
+    </div>);
 }
 
 export default Cards;

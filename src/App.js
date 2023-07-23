@@ -1,24 +1,45 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './App.css';
-import Cards from './components/Card.js'
+import data from './data.js';
+// import Cards from './components/Card.js';
+import Tours from './components/Tours.js';
 
 function App() {
-  const sentence = "Agra, a city in northern India, is renowned for its iconic landmark, the Taj Mahal, a breathtaking white marble mausoleum. This architectural masterpiece was built by the Mughal Emperor Shah Jahan in memory of his beloved wife. Agra's rich history also includes other historical gems like Agra Fort and Fatehpur Sikri, showcasing the grandeur of Mughal architecture. With its vibrant culture and bustling markets, Agra offers visitors an unforgettable experience steeped in history and beauty.";
+  const [tours,settour]=useState(data);
+  function removecard(Id)
+  {
+    const newtour=tours.filter(tour=>tour.Id!=Id);
+    settour(newtour);
+  }
+  function selectcard(Id)
+  {
+    const newtour=tours.filter(tour=>tour.Id==Id);
+    settour(newtour);
+  }
+  function refresh(){
+    settour(data);
+  }
+if(tours.length==0)
+{
+  return(
+    <div className='refreshpage'>
+      <h1 className='msg'>no tours left</h1>
+       <button className='btn' onClick={refresh}>refresh</button>
+    </div>
+  )
+}
+
+else{
   return (
+   
     <div className="App">
       <h1 className='Heading'>Plan With Kanjusi</h1>
-      <Cards Url="https://images.pexels.com/photos/602607/pexels-photo-602607.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" cost="32,000" place="Agra" description={sentence} />
-          <Cards Url="https://images.pexels.com/photos/602607/pexels-photo-602607.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" cost="32,000" place="Agra" description={sentence} />
-          <Cards Url="https://images.pexels.com/photos/602607/pexels-photo-602607.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" cost="32,000" place="Agra" description={sentence} />
-          <Cards Url="https://images.pexels.com/photos/602607/pexels-photo-602607.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" cost="32,000" place="Agra" description={sentence} />
-          <Cards Url="https://images.pexels.com/photos/602607/pexels-photo-602607.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" cost="32,000" place="Agra" description={sentence} />
-          <Cards Url="https://images.pexels.com/photos/602607/pexels-photo-602607.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" cost="32,000" place="Agra" description={sentence} />
-          <Cards Url="https://images.pexels.com/photos/602607/pexels-photo-602607.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" cost="32,000" place="Agra" description={sentence} />
-          <Cards Url="https://images.pexels.com/photos/602607/pexels-photo-602607.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" cost="32,000" place="Agra" description={sentence} />
-          <Cards Url="https://images.pexels.com/photos/602607/pexels-photo-602607.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" cost="32,000" place="Agra" description={sentence} />
-
+      <div>
+       <Tours tours={tours} selectcard={selectcard} removecard={removecard}></Tours>
+       </div>
     </div>
   );
+}
 }
 
 export default App;

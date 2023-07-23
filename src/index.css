@@ -1,13 +1,70 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.tours
+{
+  display: flex;
+  flex-wrap: wrap;
+  width: 75vw;
+  justify-content: center; 
+  
+}
+.Card
+{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px;
+    flex-basis: calc(32% - 20px);
+    margin: 10px;
+    background-color: white;
+    border: rgb(240, 234, 234) solid 1px;
+}
+.Img{
+    width: 100%;
+    object-fit: cover;
+    
+}
+.Cost
+{
+    color: green;
+    font-size: large;
+    margin-top:5px;
+}
+span .readmore
+{
+    color: rgb(30, 139, 183);
+}
+.btn
+{ display: block;
+    margin: auto;
+     width:250px;
+    padding: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    background: rgb(228, 207, 207);
+    color: black;
+    border: 1px solid rgb(174, 81, 81);
+
+}
+.btn:hover
+{
+cursor: pointer;
+background: rgb(145, 78, 78);
+}
+.readmore
+{
+color: rgb(10, 142, 194);
+display: inline;
+cursor: pointer;
+}
+.place
+{
+    margin-top: 0px;
+}
+.refreshpage
+{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
